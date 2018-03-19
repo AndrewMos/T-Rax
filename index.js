@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const TelegramBot = require("node-telegram-bot-api");
 
-const TOKEN = "YOUR_API_TOKEN_GOES_HERE";
+const TOKEN = "567556684:AAHxtGqzRMvLOQQUd0nXuaZn2OFMAKNU-f8";
 const server = express();
 const bot = new TelegramBot(TOKEN, { polling: true } );
 
@@ -18,7 +18,7 @@ bot.on("callback_query", function (query) {
         bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
     } else {
         queries[query.id] = query;
-        let gameurl = "https://trexgame.herokuapp.com/index.html?id="+query.id;
+        let gameurl = "https://moskovstudiogame.herokuapp.com/index.html?id="+query.id;
         bot.answerCallbackQuery({
             callback_query_id: query.id,
             url: gameurl
